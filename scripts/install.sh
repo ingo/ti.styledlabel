@@ -5,6 +5,9 @@ sudo mkdir -p /Library/Application\ Support/Titanium/sdks/
 export PYTHONPATH=${PYTHONPATH}:$PWD/support
 sudo easy_install markdown
 
+# install ANT
+brew install ant
+
 # Android SDK seems to require newer version of SDK
 sudo wget http://api.appcelerator.net/p/v1/release-download?token=34yycjh6 -O /Library/Application\ Support/Titanium/mobilesdk-2.1.3.GA-osx.zip
 cd /Library/Application\ Support/Titanium/
