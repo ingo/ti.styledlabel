@@ -3,7 +3,7 @@ before_install:
     - MODULE_ROOT=$PWD
 install:
     - cd $MODULE_ROOT
-    - curl -o install.sh https://github.com/appcelerator-modules/ci/blob/master/travis/install.sh
+    - curl -o install.sh https://raw.githubusercontent.com/appcelerator-modules/ci/master/travis/install.sh
     - source install.sh
     
 before_script:
