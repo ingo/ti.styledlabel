@@ -1,23 +1,23 @@
 #!/bin/bash
-mkdir -p /Library/Application\ Support/Titanium/sdks/
+sudo mkdir -p /Library/Application\ Support/Titanium/sdks/
 
 # install py markdown
 export PYTHONPATH=${PYTHONPATH}:$PWD/support
 
 # Android SDK seems to require newer version of SDK
-wget http://api.appcelerator.net/p/v1/release-download?token=34yycjh6 -O /Library/Application\ Support/Titanium/mobilesdk-2.1.3.GA-osx.zip
+sudo wget http://api.appcelerator.net/p/v1/release-download?token=34yycjh6 -O /Library/Application\ Support/Titanium/mobilesdk-2.1.3.GA-osx.zip
 cd /Library/Application\ Support/Titanium/
-unzip -o  mobilesdk-2.1.3.GA-osx.zip
+sudo unzip -o  mobilesdk-2.1.3.GA-osx.zip
 
 # IOS uses v.1.6
-wget http://api.appcelerator.net/p/v1/release-download?token=y4qAVWK3 -O /Library/Application\ Support/Titanium/mobilesdk-1.6.0-osx.zip
+sudo wget http://api.appcelerator.net/p/v1/release-download?token=y4qAVWK3 -O /Library/Application\ Support/Titanium/mobilesdk-1.6.0-osx.zip
 cd /Library/Application\ Support/Titanium/
-unzip -o mobilesdk-1.6.0-osx.zip
+sudo unzip -o mobilesdk-1.6.0-osx.zip
 
 # Install Android SDK
 cd /Library/Application\ Support/Titanium/sdks/
-wget http://dl.google.com/android/android-sdk_r22.6.2-macosx.zip
-unzip -o android-sdk_r22.6.2-macosx.zip
+sudo wget http://dl.google.com/android/android-sdk_r22.6.2-macosx.zip
+sudo unzip -o android-sdk_r22.6.2-macosx.zip
 export ANDROID_HOME=${PWD}/android-sdk-macosx
 
 export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
