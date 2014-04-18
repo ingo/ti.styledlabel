@@ -4,8 +4,6 @@ before_install:
 install:
     - cd $MODULE_ROOT
     - source ./scripts/install.sh
-    - which brew
-    - which port
     
 before_script:
     - cd $MODULE_ROOT
