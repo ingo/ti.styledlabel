@@ -3,7 +3,7 @@ before_install:
     - MODULE_ROOT=$PWD
 install:
     - cd $MODULE_ROOT
-    - sudo source ./scripts/install.sh
+    - source ./scripts/install.sh
     
 before_script:
     - cd $MODULE_ROOT
