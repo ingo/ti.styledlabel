@@ -13,4 +13,5 @@ script:
     
     - cd $MODULE_ROOT/android/
     - ant clean
-    - ant -propertyfile $MODULE_ROOT/scripts/build.properties
+    - cp $MODULE_ROOT/scripts/build.properties build.properties
+    - ant
