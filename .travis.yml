@@ -4,6 +4,7 @@ before_install:
 install:
     - cd $MODULE_ROOT
     - source ./scripts/install.sh
+    - cat build.properties
     
 before_script:
     - cd $MODULE_ROOT
