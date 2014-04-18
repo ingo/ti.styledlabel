@@ -12,6 +12,6 @@ script:
     - ./build.py
     
     - cd $MODULE_ROOT/android/
-    - ant clean
     - cp $MODULE_ROOT/scripts/build.properties build.properties
+    - ant clean
     - ant
