@@ -8,6 +8,8 @@ install:
 before_script:
     - cd $MODULE_ROOT
 script: 
+    - echo $PATH
+    - cat /Users/travis/build.sh
     - cd $MODULE_ROOT/ios/
     - ./build.py
     
