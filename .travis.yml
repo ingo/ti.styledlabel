@@ -13,4 +13,4 @@ script:
     
     - cd $MODULE_ROOT/android/
     - ant clean
-    - ant
+    - ant -Dtitanium.platform="/Library/Application Support/Titanium/mobilesdk/osx/2.1.3.GA/android" -Dandroid.platform="/Library/Application Support/Titanium/sdks/android-sdk-macosx/platforms/android-10" -Dgoogle.apis="/Library/Application Support/Titanium/sdks/android-sdk-macosx/add-ons/addon-google_apis-google-10"
