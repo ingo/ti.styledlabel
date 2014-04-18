@@ -3,7 +3,7 @@ sudo mkdir -p /Library/Application\ Support/Titanium/sdks/
 
 # install py markdown
 export PYTHONPATH=${PYTHONPATH}:$PWD/support
-sudo pip install markdown
+sudo easy_install markdown
 
 # Android SDK seems to require newer version of SDK
 sudo wget http://api.appcelerator.net/p/v1/release-download?token=34yycjh6 -O /Library/Application\ Support/Titanium/mobilesdk-2.1.3.GA-osx.zip
