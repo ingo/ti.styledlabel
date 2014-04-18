@@ -1,8 +1,10 @@
 language: objective-c
 before_install:
     - MODULE_ROOT=$PWD
-    - cd $MODULE_ROOT
 install:
+    - cd $MODULE_ROOT
+    - pwd
+    - ls
     - sudo ./scripts/install.sh
     
 before_script:
