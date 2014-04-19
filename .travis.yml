@@ -30,5 +30,5 @@ script:
 after_failure: # this will of course run only on failure
   - "travis-artifacts upload --path debug/debug.log"
 after_success: # and this only on success
-  - "travis-artifacts upload --path ios/*.zip --target-path modules/ti.styledlabel"
-  - "travis-artifacts upload --path android/dist/*.zip --target-path modules/ti.styledlabel"
+  - "travis-artifacts upload --path $MODULE_ROOT/ios/*.zip --target-path modules/ti.styledlabel"
+  - "travis-artifacts upload --path $MODULE_ROOT/android/dist/*.zip --target-path modules/ti.styledlabel"
