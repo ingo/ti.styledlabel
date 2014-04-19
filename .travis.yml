@@ -1,6 +1,13 @@
 language: objective-c
+env:
+ global:
+   - "ARTIFACTS_AWS_REGION=us-east-1"
+   - "ARTIFACTS_S3_BUCKET=builds.appcelerator.com"
+   - secure: "v0SVBLOt0FjRgd+fTpuurVWLrUe7jJ9/pfy2yfCda2iLna6NGDRX2XhW143R6P93ijuA87CHlAAtn1l2QBa0spjn2LOssvtzpxoJ5HPqIyy+rTcWxrIuRheoXNJNiVAl43kldidC2sUCtsirIvIFYcUZBp7kig3BuDDtKIHU1yo="
+   - secure: "wWo+xCISO6XVVFATFnBSZ6G/GC1JWM4ZUDZSVG0KpFqkBRDlPDnGQSs5KDqjpw1aptJGQ+86e/MFATSpWo80O0JIpg78VS+9qpf2rp8UM4AFqe0h3gI8r4N00bK8Z5edfMGarEmIhLZx5pevqasblneMWULekTzDCHUrSkFCtlk="
 before_install:
     - MODULE_ROOT=$PWD
+    - "gem install travis-artifacts"
 install:
     - cd $MODULE_ROOT
     - curl -o install.sh https://raw.githubusercontent.com/appcelerator-modules/ci/master/travis/install.sh
@@ -20,3 +27,8 @@ script:
     -   ant clean
     -   ant
     - fi
+after_failure: # this will of course run only on failure
+  - "travis-artifacts upload --path debug/debug.log"
+after_success: # and this only on success
+  - "travis-artifacts upload --path ios/*.zip --target-path modules/ti.styledlabel"
+  - "travis-artifacts upload --path android/dist/*.zip --target-path modules/ti.styledlabel"
