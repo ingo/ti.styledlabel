@@ -5,6 +5,7 @@ env:
    - "ARTIFACTS_S3_BUCKET=builds.appcelerator.com"
    - secure: "LFp2aVjUEghOLAvcTZMfAvrM9KUcmquOH8Sq9fuvTPBTpyopEpec1WNwV0oGL+j6xCXgxiBNNfOZ17AJyq8weKZC3wWaLQk6m9KbIfzL0ZgGz3jil+V1KijVrLkb6sMM0K4DCHIA6gLMqU6xg330tmwWWfHAPDrjjs+yV5v29GU="
    - secure: "nvH44W01netO1voX5EbzRjz3Rvv97e6j5GeprxwroEwEF28a15sNW9keCL7/uYW1bkCgZyNeRF9DiG2N3VBy79YxsA8katM4FsuVdxM1BgZtvuNJ4foUdXZwfPoFy3Y1jvc1IYup75aBC7tj/IV4jMfnPWB31niPWmANN0nY4Zw="
+   - "MODULE_NAME=ti.styledlabel" 
 before_install:
     - MODULE_ROOT=$PWD
     - "gem install travis-artifacts"
@@ -30,16 +31,5 @@ script:
 after_failure: # this will of course run only on failure
   - "travis-artifacts upload --path debug/debug.log"
 after_success: # and this only on success
-  - mkdir $MODULE_ROOT/dist_bak
-  - cp $MODULE_ROOT/ios/*.zip $MODULE_ROOT/dist_bak
-  - cp $MODULE_ROOT/android/dist/*.zip $MODULE_ROOT/dist_bak
-  - mkdir $MODULE_ROOT/dist
-  - NAME="${FILENAME%.*}"
-  - EXT="${FILENAME##*.}"
-  - NOW=$(date +"%d%m%Y")
-  - for FILENAME in $MODULE_ROOT/dist_bak/*.zip
-  - do
-  -   cp "${FILENAME}" "$MODULE_ROOT/dist/${NAME}-${NOW}.${EXT}"
-  - done
-  - cd $MODULE_ROOT/dist
-  - "travis-artifacts upload --path *.zip --target-path modules/ti.styledlabel/"
+  - curl -o deploy.sh https://raw.githubusercontent.com/appcelerator-modules/ci/master/travis/deploy.sh
+  - source deploy.sh
