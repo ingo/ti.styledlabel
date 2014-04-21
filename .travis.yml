@@ -3,8 +3,8 @@ env:
  global:
    - "ARTIFACTS_AWS_REGION=us-east-1"
    - "ARTIFACTS_S3_BUCKET=builds.appcelerator.com"
-   - secure: "v0SVBLOt0FjRgd+fTpuurVWLrUe7jJ9/pfy2yfCda2iLna6NGDRX2XhW143R6P93ijuA87CHlAAtn1l2QBa0spjn2LOssvtzpxoJ5HPqIyy+rTcWxrIuRheoXNJNiVAl43kldidC2sUCtsirIvIFYcUZBp7kig3BuDDtKIHU1yo="
-   - secure: "wWo+xCISO6XVVFATFnBSZ6G/GC1JWM4ZUDZSVG0KpFqkBRDlPDnGQSs5KDqjpw1aptJGQ+86e/MFATSpWo80O0JIpg78VS+9qpf2rp8UM4AFqe0h3gI8r4N00bK8Z5edfMGarEmIhLZx5pevqasblneMWULekTzDCHUrSkFCtlk="
+   - secure: "LFp2aVjUEghOLAvcTZMfAvrM9KUcmquOH8Sq9fuvTPBTpyopEpec1WNwV0oGL+j6xCXgxiBNNfOZ17AJyq8weKZC3wWaLQk6m9KbIfzL0ZgGz3jil+V1KijVrLkb6sMM0K4DCHIA6gLMqU6xg330tmwWWfHAPDrjjs+yV5v29GU="
+   - secure: "nvH44W01netO1voX5EbzRjz3Rvv97e6j5GeprxwroEwEF28a15sNW9keCL7/uYW1bkCgZyNeRF9DiG2N3VBy79YxsA8katM4FsuVdxM1BgZtvuNJ4foUdXZwfPoFy3Y1jvc1IYup75aBC7tj/IV4jMfnPWB31niPWmANN0nY4Zw="
 before_install:
     - MODULE_ROOT=$PWD
     - "gem install travis-artifacts"
