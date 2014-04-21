@@ -30,7 +30,16 @@ script:
 after_failure: # this will of course run only on failure
   - "travis-artifacts upload --path debug/debug.log"
 after_success: # and this only on success
-  - cd $MODULE_ROOT/ios
-  - "travis-artifacts upload --path *.zip --target-path modules/ti.styledlabel/"
-  - cd $MODULE_ROOT/android/dist
+  - mkdir $MODULE_ROOT/dist_bak
+  - cp $MODULE_ROOT/ios/*.zip $MODULE_ROOT/dist_bak
+  - cp $MODULE_ROOT/android/dist/*.zip $MODULE_ROOT/dist_bak
+  - mkdir $MODULE_ROOT/dist
+  - NAME="${FILENAME%.*}"
+  - EXT="${FILENAME##*.}"
+  - NOW=$(date +"%d%m%Y")
+  - for FILENAME in $MODULE_ROOT/dist_bak/*.zip
+  - do
+  -   cp "${FILENAME}" "$MODULE_ROOT/dist/${NAME}-${NOW}.${EXT}"
+  - done
+  - cd $MODULE_ROOT/dist
   - "travis-artifacts upload --path *.zip --target-path modules/ti.styledlabel/"
